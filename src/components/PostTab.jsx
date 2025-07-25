@@ -11,11 +11,16 @@ import author1 from '../../src/assets/author-1.png'
 import author2 from '../../src/assets/author-2.png'
 import author3 from '../../src/assets/author-3.png'
 import { useState } from 'react';
+import LocationGroups from './LocationGroups';
+import { CiSaveDown2 } from 'react-icons/ci';
 
 const PostTab = () => {
 
     const [category, setCategory] = useState('All')
     const [isOpen, setIsOpen] = useState(false)
+    const [isJoin, setIsJoin] = useState(true)
+
+    console.log(isJoin)
 
 
     const articles = [
@@ -125,10 +130,6 @@ const PostTab = () => {
                             {
                                 categoryData.map(category => <Tab className="border-0 focus:outline-0 hover:cursor-pointer text-base py-5 ">{category.label} Posts ({ category.count })</Tab>)
                             }
-                            {/* <Tab className=" border-0 focus: outline-0  hover:cursor-pointer text-base py-5 ">Article({filterArticle.length})</Tab>
-                            <Tab className=" border-0 focus: outline-0  hover:cursor-pointer text-base py-5 ">Event({filterMeetUp.length})</Tab>
-                            <Tab className=" border-0 focus: outline-0  hover:cursor-pointer text-base py-5 ">Education({filterEducations.length})</Tab>
-                            <Tab className=" border-0 focus: outline-0  hover:cursor-pointer text-base py-5 ">Job({filterJobs.length})</Tab> */}
                         </TabList>
                     </div>
                    
@@ -142,10 +143,19 @@ const PostTab = () => {
                             </button>
 
                             {/* Join Group Button */}
-                            <button className="flex items-center px-4 py-2 bg-[#1877F2] text-white font-medium rounded-md hover:bg-[#166fe0]">
+                            {
+                                isJoin == true ? <button onClick={() => setIsJoin(false)} className="flex items-center px-4 py-2 bg-[#1877F2] text-white font-medium rounded-md hover:bg-[#166fe0]">
                                 <FaUser className="mr-2" />
                                 Join Group
-                            </button>
+                            </button>:
+                            <button onClick={() => setIsJoin(true)} className="flex items-center px-4 py-2 bg-white  text-[#6A6A6B] border-[#6A6A6B] border font-medium rounded-md ">
+                             
+                                <CiSaveDown2 className="mr-2 text-[#6A6A6B] text-xl -rotate-90"  />
+                                Leave Group
+                            </button> 
+                            
+                            }
+                            
                         </div>
                     </div>
                 </div>
@@ -181,8 +191,8 @@ const PostTab = () => {
                             }
                         </TabPanel>
                     </div>
-                    <div className='col-span-1 bg-red-400 hidden lg:block md:block'>
-                        <h1>Tapos</h1>
+                    <div className='col-span-1  hidden lg:block md:block'>
+                       <LocationGroups></LocationGroups>
                     </div>
                 </div>
             </Tabs>

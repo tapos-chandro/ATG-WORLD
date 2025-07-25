@@ -9,11 +9,12 @@ import {
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
-  },
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
