@@ -3,8 +3,8 @@
 @theme {
   --font-ibm: "IBM Plex Sans", sans-serif;
   --breakpoint-3xl: 120rem;
-  --color-avocado-100: oklch(0.99 0 0);
-  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-primary-color: #000;
+  --color-secondary-color: #E0E0E0;
   --color-avocado-300: oklch(0.94 0.11 115.03);
   --color-avocado-400: oklch(0.92 0.19 114.08);
   --color-avocado-500: oklch(0.84 0.18 117.33);
@@ -12,4 +12,17 @@
   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
   /* ... */
+}
+
+.react-tabs__tab--selected {
+  border-bottom: 1px solid #000 !important;
+  color: #000;
+}
+.react-tabs__tab:focus {
+  outline: none !important;
+}
+
+.react-tabs__tab--disabled {
+  border-bottom: none !important;
+  color: #E0E0E0 !important ;
 }

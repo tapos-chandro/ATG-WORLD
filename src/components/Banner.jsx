@@ -1,5 +1,4 @@
 
-
 const Banner = () => {
     return (
         <div
